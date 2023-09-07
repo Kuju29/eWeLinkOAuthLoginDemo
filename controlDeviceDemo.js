@@ -122,11 +122,11 @@ const checkAndUpdate = async (client) => {
                     type: 1,
                     id: device.itemData.deviceid,
                     params: {
-                      switches: [{ switch: "off", outlet: 0 }],
+                      switches: [{ switch: "on", outlet: 0 }],
                     },
                   });
                   console.log(
-                    `Device: ${device.itemData.name} เปลี่ยนเป็น "on" เพราะไม่ตรงตามเวลาปัจจุบัน.`
+                    `Device: ${device.itemData.name} เปลี่ยนเป็น ${status.switch} เพราะไม่ตรงตามเวลาปัจจุบัน.`
                   );
                 } else {
                   console.log(
@@ -135,7 +135,7 @@ const checkAndUpdate = async (client) => {
                 }
               } else {
                 console.log(
-                  `Device: ${device.itemData.name} สถานะ "on" ในตารางเวลา ปกติ`
+                  `Device: ${device.itemData.name} สถานะ ${status.switch} ในตารางเวลา ปกติ`
                 );
               }
             } else {
@@ -149,7 +149,7 @@ const checkAndUpdate = async (client) => {
                     },
                   });
                   console.log(
-                    `Device: ${device.itemData.name} เปลี่ยนเป็น "off" เพราะไม่ตรงตามเวลาปัจจุบัน.`
+                    `Device: ${device.itemData.name} เปลี่ยนเป็น ${status.switch} เพราะไม่ตรงตามเวลาปัจจุบัน.`
                   );
                 } else {
                   console.log(
@@ -158,7 +158,7 @@ const checkAndUpdate = async (client) => {
                 }
               } else {
                 console.log(
-                  `Device: ${device.itemData.name} สถานะ "off" นอกตารางเวลา ปกติ `
+                  `Device: ${device.itemData.name} สถานะ ${status.switch} นอกตารางเวลา ปกติ `
                 );
               }
             }
